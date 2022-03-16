@@ -1,5 +1,5 @@
 # fonky-challenge
-Dit is de opdracht voor developers die bij Fonky Sales solliciteren
+Dit is de opdracht voor developers die bij Fonky solliciteren
 
 Bij het interviewen van development posities, vinden we het belangrijk om code te zien en te bespreken. Daarom vragen we jou om aan een challenge te werken. Het is niet de bedoeling dat het je superveel tijd kost, een paar uur zou voldoende moeten zijn. De opdracht is breed geformuleerd; je zou er weken of dagen mee bezig kunnen zijn, natuurlijk is er maar zoveel dat je kunt doen in 2 uur. Maak je daar geen zorgen om, het gaat er niet om dat het af is, maar dat jij iets werkends laat zien waarbij je je skills etaleert. 
 
