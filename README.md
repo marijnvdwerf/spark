@@ -14,3 +14,11 @@ Maak een pull request aan waarin je in ieder geval een readme hebt opgenomen die
 Deze opdracht is expres ruim geformuleerd. Je mag de technieken en tools gebruiken die je het liefst gebruikt. Je mag je tijd besteden aan de aspecten die je zelf het belangrijkst vindt. Er is geen tijd om alles te doen: maak een keuze. Bij Fonky werken we met PHP, JavaScript, HTML en CSS. Je mag frameworks en libraries gebruiken. Je mag de data in een ander formaat omzetten of importeren in databases. Dan wel in de readme uitleggen hoe een ander het werkend kan krijgen. 
  
 De minimale requirement in de opdracht is "wat zijn de resultaten van deze klant voor Fonky". Dat kan in een lijstje, in een grafisch vorm, het kan als getallen of kleuren. Je kan het vergelijken met vorige week of een gemiddelde score. Probeer te bedenken wat voor Fonky het belangrijkst is. 
+
+**Waar wij op letten**
+
+- Design patterns
+- OOP
+- Consistentie
+- Denk er over na wat je wilt laten zien
+- Check je code op slordigheden voor je het opstuurt (zelf-kritisch)
