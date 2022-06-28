@@ -1,24 +1,24 @@
 # fonky-challenge
-Dit is de opdracht voor developers die bij Fonky solliciteren
+This is the assignment for developers who apply at Fonky.
 
-Bij het interviewen van development posities, vinden we het belangrijk om code te zien en te bespreken. Daarom vragen we jou om aan een challenge te werken. Het is niet de bedoeling dat het je superveel tijd kost. De opdracht is breed geformuleerd; je zou er weken of dagen mee bezig kunnen zijn, maar dat is niet de bedoeling. Maak je daar geen zorgen om, het gaat er niet om dat het af is, maar dat jij iets werkends laat zien waarbij je je skills etaleert. 
+When interviewing development positions, we believe it is important to see and discuss code. That's why we ask you to work on a challenge. It is not meant to take you too much time, but on the other hand it ways very heavily in the application process. 
 
-**De opdracht**
+The assignment is broadly formulated; it could take you weeks or days, but that's not the point. Don't worry about that, it's not about finishing it, but showing something that works and showing off your skills.
 
-In deze repository vind je een folder Data met daarin orders.csv. In dit bestand zitten de orders van Fonky van verschillende vestigingen van één klant.
-Maak een dashboard van de resultaten voor deze klant. Je mag hier zelf weten wat je presenteert. 
-Maak een pull request aan waarin je in ieder geval een readme hebt opgenomen die uitlegt wat je moet doen om het resultaat te kunnen bekijken.
+**The assignment**
 
-**Vrijheid**
+In this repository you will find a folder Data containing orders.csv. This file contains Fonky's orders from different locations of one customer. Create a dashboard of the results for this customer. Here you can decide for yourself what you are presenting. Create a pull request in which you have included at least a readme that explains what you need to do to view the result.
 
-Deze opdracht is expres ruim geformuleerd. Je mag de technieken en tools gebruiken die je het liefst gebruikt. Je mag je tijd besteden aan de aspecten die je zelf het belangrijkst vindt. Er is geen tijd om alles te doen: maak een keuze. Bij Fonky werken we met PHP, JavaScript, HTML en CSS. Je mag frameworks en libraries gebruiken. Je mag de data in een ander formaat omzetten of importeren in databases. Dan wel in de readme uitleggen hoe een ander het werkend kan krijgen. 
- 
-De minimale requirement in de opdracht is "wat zijn de resultaten van deze klant voor Fonky". Dat kan in een lijstje, in een grafisch vorm, het kan als getallen of kleuren. Je kan het vergelijken met vorige week of een gemiddelde score. Probeer te bedenken wat voor Fonky het belangrijkst is. 
+**Creative freedom**
 
-**Waar wij op letten**
+This assignment is deliberately broadly formulated. You may use the techniques and tools you prefer. You can spend your time on the aspects that are most important to you. There is no time to do everything: make a choice. At Fonky we work with Laravel and Vue. You are allowed to use frameworks and libraries. You may convert the data into another format or import it into databases. Then explain in the readme how someone else can get it working.
+
+The minimum requirement in the assignment is "what are the results of this client for Fonky". That can be in a list, in a graphic form, it can be as numbers or colors. You can compare it with last week or an average score. Try to think of what is most important to Fonky.
+
+**What we pay attention to**
 
 - Design patterns
 - OOP
-- Consistentie
-- Denk er over na wat je wilt laten zien
-- Check je code op slordigheden voor je het opstuurt (zelf-kritisch)
+- Consistency
+- Think about what you want to showcase
+- Check your code for mistakes before sending it (be self-critical)
