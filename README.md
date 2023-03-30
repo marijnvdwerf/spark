@@ -22,3 +22,4 @@ The minimum requirement in the assignment is "what are the results of this clien
 - Consistency
 - Think about what you want to showcase
 - Check your code for mistakes before sending it (be self-critical)
+- Quality over quantity
