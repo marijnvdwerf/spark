@@ -12,8 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('orders', function (Blueprint $table) {
+            // TODO: add campaign/customer table + foreign key
             $table->id();
             $table->timestamps();
+            $table->string('name');
+            $table->string('product'); // TODO: create products table
+            $table->string('location'); // TODO: add location table
+            $table->string('seller'); // TODO: add sellers/people table
         });
     }
 
