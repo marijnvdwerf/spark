@@ -20,13 +20,35 @@
         <div>
             <h1 class="text-xl font-bold mb-4">Statistieken voor
                 <select wire:model="location">
-                    <option value="0">Nederland</option>
+                    <option value="0">Heel Nederland</option>
                     @foreach($locations as $location)
                         <option value="{{ $location->id }}">{{ $location->name }}</option>
                     @endforeach
                 </select>
             </h1>
 
+            <table>
+                <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Aantal</th>
+                    @if($location)
+                        <th>Heel Nederland</th>
+                    @endif
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($productStats as $stat)
+                    <tr>
+                        <td>{{ $stat['product'] }}</td>
+                        <td>{{ $stat['value'] }}</td>
+                        @if($location)
+                            <td>{{ $stat['total'] }}</td>
+                        @endif
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
 

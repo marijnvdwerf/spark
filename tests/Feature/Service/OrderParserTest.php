@@ -4,6 +4,7 @@ namespace Tests\Feature\Console\Commands;
 
 use App\Models\Location;
 use App\Models\Order;
+use App\Models\Product;
 use App\Services\OrderParser;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -46,5 +47,20 @@ class OrderParserTest extends TestCase
         $this->assertDatabaseCount('locations', 1);
         $this->assertDatabaseCount('orders', 1);
         $this->assertSame($location->id, $order->location->id);
+    }
+
+    public function test_creates_products(): void
+    {
+        $parser = $this->app->make(OrderParser::class);
+
+        $this->assertDatabaseCount('products', 0);
+
+        $order = $parser->parseRow('82479', 'S. Schippers', '08/12/2020 18:43', 'D12,5', 'Nijmegen / Esther Oostland');
+
+        $this->assertDatabaseCount('products', 1);
+        $product = $order->product;
+        $this->assertInstanceOf(Product::class, $product);
+        $this->assertSame('D12,5', $product->name);
+        $this->assertSame(1250, $product->price);
     }
 }

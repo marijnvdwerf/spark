@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Location;
 use App\Models\Order;
+use App\Models\Product;
 use Carbon\Carbon;
 use Livewire\Component;
 
@@ -52,18 +53,13 @@ class ShowOrders extends Component
 
     public function render()
     {
-        $query = Order::query();
-        if ($this->location) {
-            $query->where('location_id', $this->location);
-        }
-
         // Carbon doesn't like year-week, see https://stackoverflow.com/a/52062781
         list($year, $week) = explode('-', $this->weeks[$this->week]);
         $weekStart = Carbon::create()
             ->setISODate($year, $week)  // TODO: verify how this works when day-year and week-year differ
             ->startOfWeek();
         $weekEnd = $weekStart->copy()->endOfWeek();
-        $orders = $query->get()
+        $orders = Order::get()
             ->filter(function (Order $order) use ($weekEnd, $weekStart) {
                 return $order->created_at->between($weekStart, $weekEnd);
             });
@@ -84,7 +80,32 @@ class ShowOrders extends Component
             ];
         }
 
+        // TODO: only get products for this campaign
+        $products = Product::all()->sortBy('price');
+
+
+        $locationOrdersByProduct = [];
+        $ordersByProduct = $orders->groupBy('product_id');
+        if ($this->location && isset($locationOrders[$this->location])) {
+            $locationOrdersByProduct = $locationOrders[$this->location]->groupBy('product_id');
+        }
+
+
+        $productStats = [];
+        foreach ($products as $product) {
+            $productStats[] = [
+                'product' => $product->name,
+                'value' => count($locationOrdersByProduct[$product->id] ?? []),
+                'total' => count($ordersByProduct[$product->id] ?? []),
+            ];
+        }
+
+
         $this->emit('updateChart', $stats);
-        return view('livewire.show-orders', ['stats' => $stats, 'locations' => Location::all()]);
+        return view('livewire.show-orders', [
+            'stats' => $stats,
+            'productStats' => $productStats,
+            'locations' => Location::all()
+        ]);
     }
 }
