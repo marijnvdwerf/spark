@@ -1,4 +1,11 @@
 <div>
+    <input type="range" wire:model="week" min="0" max="{{ count($weeks) - 1 }}" value="{{$week}}">
+    <select wire:model="location">
+        <option value="0">Nederland</option>
+        @foreach($locations as $location)
+            <option value="{{ $location->id }}">{{ $location->name }}</option>
+        @endforeach
+    </select>
     <table>
         <thead>
         <tr>
@@ -24,6 +31,4 @@
         @endforeach
         </tbody>
     </table>
-
-    {{ $orders->links() }}
 </div>
