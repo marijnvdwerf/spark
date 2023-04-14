@@ -67,6 +67,24 @@ class ShowOrders extends Component
             ->filter(function (Order $order) use ($weekEnd, $weekStart) {
                 return $order->created_at->between($weekStart, $weekEnd);
             });
-        return view('livewire.show-orders', ['orders' => $orders, 'locations' => Location::all()]);
+
+        $locations = Location::all();
+        $locationOrders = $orders->groupBy('location_id');
+        $stats = [];
+        foreach ($locations as $location) {
+            $count = null;
+            if (isset($locationOrders[$location->id])) {
+                $count = count($locationOrders[$location->id]);
+            }
+            $stats[] = [
+                'description' => $location->name,
+                'latitude' => $location->latitude,
+                'longitude' => $location->longitude,
+                'value' => $count
+            ];
+        }
+
+        $this->emit('updateChart', $stats);
+        return view('livewire.show-orders', ['stats' => $stats, 'locations' => Location::all()]);
     }
 }
