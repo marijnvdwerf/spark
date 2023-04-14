@@ -1,12 +1,34 @@
-<div>
-    <select wire:model="location">
-        <option value="0">Nederland</option>
-        @foreach($locations as $location)
-            <option value="{{ $location->id }}">{{ $location->name }}</option>
-        @endforeach
-    </select>
+<div class="w-[960px] mx-auto pt-8">
+    <h1 class="text-3xl font-bold mb-4">Campageoverzicht</h1>
+    <div class="grid grid-cols-3 gap-4">
+        <div class="col-span-2">
+            <h1 class="text-xl font-bold mb-4">"Heatmap"</h1>
+            <div class="aspect-square relative">
+                <canvas wire:ignore id="canvas" class="absolute inset-0"></canvas>
+            </div>
 
-    <canvas wire:ignore id="canvas"></canvas>
+            <div class="flex justify-center gap-4 align-items-center">
+                <span class="text-sm text-slate-400">{{ reset($weeks) }}</span>
+                <div>
+                    <input type="range" wire:model="week" min="0" max="{{ count($weeks) - 1 }}" value="{{$week}}">
+                    <span class="block text-center">{{ $weeks[$week] }}</span>
+                </div>
+                <span class="text-sm text-slate-400">{{ last($weeks) }}</span>
+            </div>
+        </div>
+
+        <div>
+            <h1 class="text-xl font-bold mb-4">Statistieken voor
+                <select wire:model="location">
+                    <option value="0">Nederland</option>
+                    @foreach($locations as $location)
+                        <option value="{{ $location->id }}">{{ $location->name }}</option>
+                    @endforeach
+                </select>
+            </h1>
+
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@~4.1.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@next"></script>
@@ -38,6 +60,7 @@
                         ],
                     },
                     options: {
+                        aspectRatio: 1,
                         plugins: {
                             legend: {
                                 display: false,
@@ -73,6 +96,4 @@
             });
         });
     </script>
-    <input type="range" wire:model="week" min="0" max="{{ count($weeks) - 1 }}" value="{{$week}}">
-    <span>{{ $weeks[$week] }}</span>
 </div>
