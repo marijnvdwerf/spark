@@ -21,8 +21,8 @@
             <h1 class="text-xl font-bold mb-4">Statistieken voor
                 <select wire:model="location">
                     <option value="0">Heel Nederland</option>
-                    @foreach($locations as $location)
-                        <option value="{{ $location->id }}">{{ $location->name }}</option>
+                    @foreach($locations as $l)
+                        <option value="{{ $l->id }}">{{ $l->name }}</option>
                     @endforeach
                 </select>
             </h1>
@@ -31,20 +31,20 @@
                 <thead>
                 <tr>
                     <th>Product</th>
-                    <th>Aantal</th>
                     @if($location)
-                        <th>Heel Nederland</th>
+                        <th>Aantal</th>
                     @endif
+                    <th>Heel Nederland</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($productStats as $stat)
                     <tr>
                         <td>{{ $stat['product'] }}</td>
-                        <td>{{ $stat['value'] }}</td>
                         @if($location)
-                            <td>{{ $stat['total'] }}</td>
+                            <td class="bg-cyan-300/{{ round($stat['value']/$productStatsLocationMax * 10)*10 }}">{{ $stat['value'] }}</td>
                         @endif
+                        <td class="bg-blue-300/{{ round($stat['total']/$productStatsMax * 10)*10 }}">{{ $stat['total'] }}</td>
                     </tr>
                 @endforeach
                 </tbody>

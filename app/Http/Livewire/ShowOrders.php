@@ -100,11 +100,20 @@ class ShowOrders extends Component
             ];
         }
 
+        $productStatsMax = collect($productStats)->pluck('total')->max();
+        $productStatsLocationMax = collect($productStats)->pluck('value')->max();
+
+        // Fix for every value being highlighted
+        $productStatsMax = max($productStatsMax, 1);
+        $productStatsLocationMax = max($productStatsLocationMax, 1);
+
 
         $this->emit('updateChart', $stats);
         return view('livewire.show-orders', [
             'stats' => $stats,
             'productStats' => $productStats,
+            'productStatsMax' => $productStatsMax,
+            'productStatsLocationMax' => $productStatsLocationMax,
             'locations' => Location::all()
         ]);
     }
