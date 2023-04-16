@@ -1,3 +1,20 @@
+# Getting Started
+
+```sh
+composer install
+
+# Init config
+cp .env.example .env
+./artisan key:generate
+
+# Create database
+touch database/database.sqlite
+echo "DB_DATABASE=$PWD/database/database.sqlite" >> .env
+./artisan migrate:fresh --seed
+
+./artisan serve
+```
+
 # fonky-challenge
 This is the assignment for developers who apply at Fonky.
 
